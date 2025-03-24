@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>English জানালা</title>
+    <style>
+    body{
+            font-family: 'Anek Bangla';
+        }
+    </style>
+
+</head>
+<body>
+    <header class="py-5 bg-gray-100 sticky top-0 z-50 hidden" id="header">
+        <nav class="flex justify-between max-w-[1400px] mx-auto">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="gap-3 flex">
+                <button id="faq-btn" class="btn btn-outline btn-primary flex font-['Poppins'] items-center"><i class="fa-solid fa-circle-question"></i>FAQ</button>
+                <button id="learn-btn" class="btn btn-outline btn-primary flex font-['Poppins']"><i class="fa-solid fa-book"></i> Learn</button>
+                <button class="btn btn-outline btn-primary flex font-['Poppins']" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-[1400px] mx-auto">
+        <div class="flex items-center justify-between  h-screen" id="hero-toggle">
+            <section class="w-[727px]">
+                <h1 class="text-[2.5rem] font-bold text-[#181818] font-['Poppins']"><span class="text-[#00bcff]">English</span> is Easy!!</h1>
+                <p class="w-[610px] text-[1.3rem]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+    
+                <div>
+                    <!-- Input field -->
+                <label class="input validator mt-5">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></g></svg>
+                    <input type="input" required placeholder="Enter Your Name" id="user"/>
+                  </label>
+                  <p class="validator-hint z-20 bg-white">
+                    
+                  </p>
+                  <!-- Password -->
+                  <label class="input validator ">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle></g></svg>
+                    <input type="password" required placeholder="Password (123456)" id="pass"/>
+                </div>
+                <button class="btn btn-active btn-primary mt-4 font-['Poppins']" id="loginBtn">Get Started</button>
+                  
+            </section>
+            <section class="w-[600px]">
+                <img src="images/hero.png" alt="" class="w-full justify-end">
+            </section>
+        </div>
+<!-- New section -->
+       <div id="words-toggle" class="hidden">
+        <section class="mt-15" id="learn-section">
+            <h1 class="text-[2.25rem] font-bold font-['Poppins'] justify-center text-center"><span class="text-[#00bcff]">Let's</span> Learn Vocabularies</h1>
+            <div id="lessons-section" class="flex justify-center gap-2 mt-8">
+                
+            </div>
+        </section>
+
+        <section id="loader" class="p-24 text-center hidden">
+          <span class="loading loading-bars loading-xl"></span>
+        </section>
+        <section id="word-section" class="grid grid-cols-3 gap-4 bg-[#F8F8F8] rounded-lg mt-17 p-10">
+           
+            <div class="col-span-3 justify-items-center">
+                <p>আপনি এখনো কোন Lesson Select করেন নি</p>
+                <h2 class="font-semibold text-[2rem] mt-3 text-gray-700">একটি Lesson Select করুন।</h2>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h1 id="faq-section" class="text-[2.25rem] font-bold font-['Poppins'] justify-center text-center mt-40"><span class="text-[#00bcff]">Frequently</span> Asked Questions</h1>
+
+            <div class="collapse collapse-arrow bg-[#f8f8f8] border border-[#f8f8f8] font-['poppins'] mt-10">
+                <input type="radio" name="my-accordion-2" checked="checked" />
+                <div class="collapse-title font-semibold">1. The difference between var, let, and const</div>
+                <div class="collapse-content text-sm">var: Function-scoped, can be re-assigned and re-declared.
+                  let: Block-scoped, can be re-assigned, but not re-declared.
+                  const: Block-scoped, cannot be re-assigned or re-declared.</div>
+              </div>
+              <div class="collapse collapse-arrow bg-[#f8f8f8] border border-[#f8f8f8] mt-5 font-['poppins']">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">2. The difference between map(), forEach(), and filter()</div>
+                <div class="collapse-content text-sm">map(): Creates a new array by applying a function to each element.
+                  forEach(): Executes a function on each element, but does not return anything.
+                  filter(): Creates a new array with elements that pass the condition specified in the function.</div>
+              </div>
+              <div class="collapse collapse-arrow bg-[#f8f8f8] border border-[#f8f8f8] mt-5 font-['poppins']">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">3. Explain arrow functions and how they are different from regular functions</div>
+                <div class="collapse-content text-sm">Arrow function: A shorter syntax for defining functions. It does not have its own this — it inherits this from the surrounding context. Arrow functions cannot be used as constructors and do not have the arguments object.
+                Regular function: Uses the function keyword and has its own this. Regular functions can be used as constructors and have access to the arguments object.</div>
+              </div>
+              <div class="collapse collapse-arrow bg-[#f8f8f8] border border-[#f8f8f8] mt-5 font-['poppins']">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">4. How JavaScript Promises work</div>
+                <div class="collapse-content text-sm">JavaScript Promises represent a value that may be available now, or in the future, or never. They work in three states:
+
+                  Pending: The promise is still processing.
+                  Resolved (Fulfilled): The promise has been successfully completed, and a result is available.
+                  Rejected: The promise failed, and an error is returned.</div>
+              </div>
+              <div class="collapse collapse-arrow bg-[#f8f8f8] border border-[#f8f8f8] mt-5 font-['poppins']">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">5. How closures work in JavaScript</div>
+                <div class="collapse-content text-sm">A closure is a function that retains access to variables from its lexical scope, even after the outer function has finished executing. It allows inner functions to "remember" and manipulate variables from the outer function. Closures are commonly used to create private variables and maintain state in asynchronous programming.</div>
+              </div>
+        </section>
+        
+
+        <dialog id="word_details" class="modal">
+            <div class="modal-box">
+              <div id="details-container"></div>
+      
+              <div class="modal-action justify-start">
+                <form method="dialog">
+                
+                  <button class="btn btn-primary">Complete Learning</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+       </div>
+        
+    </main>
+    <footer class="mt-30 py-20 border border-t-gray-200 border-l-0 border-r-0 border-b-0">
+        <div class="footer-section max-w-[1400px] mx-auto flex justify-between">
+          <div>
+            <img src="images/logo.png" alt="">
+            <p class="my-2 font-[500]">ইংরেজি শিখুন সহজে</p>
+            <p class="text-gray-600 font-['Poppins']">Providing Raiyan-Tech Applications since 2025</p>
+          </div>
+          <div>
+            <p class="font-['Poppins'] mt-5">Follow us</p>
+            <div class="flex gap-2 mt-2">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-brands fa-github"></i>
+              
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>
