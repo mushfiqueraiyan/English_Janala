@@ -106,11 +106,11 @@ function pronounceWord(word) {
 }
 
 const wordsInfo = (words) => {
-  // console.log(words)
+ 
   const wordSection = document.getElementById("word-section");
   wordSection.innerHTML = "";
   for (const word of words) {
-    // console.log(word)
+    
     const div = document.createElement("div");
     div.classList.add("text-center");
     div.innerHTML = `
